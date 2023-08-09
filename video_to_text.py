@@ -25,8 +25,8 @@ transcription_sentence_interval = 1.5 #@param {type:"number"}
 
 translation_thread = 20 #@param {type:"integer"}
 translation_lines_per_request = 10 #@param {type:"integer"}
-# device = "cuda"
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "cuda"
+# device = "cuda" if torch.cuda.is_available() else "cpu"
 
 vad_model = 'silero' #@param {choices:["silero", "pya"]}
 
@@ -41,7 +41,7 @@ vad_model = 'silero' #@param {choices:["silero", "pya"]}
 # Whisper is on large-v2 by default
 model_name = 'large-v2' #@param ["tiny", "small", "medium", "large-v2", "tiny.en", "small.en", "medium.en"]
 
-model = whisperx.load_model(model_name)
+model = whisperx.load_model(model_name, device = device)
 audio_file_language = 'vietnamese'
 
 
